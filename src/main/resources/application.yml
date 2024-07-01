@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: KafkaPartitions
+  kafka:
+    consumer:
+      group-id: labazov_group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      bootstrap-servers: kafka1:9092,kafka2:9094,kafka3:9096
+    producer:
+      client-id: client_labazov
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      bootstrap-servers: kafka1:9092,kafka2:9094,kafka3:9096
+      acks: all
+    bootstrap-servers: kafka1:9092,kafka2:9094,kafka3:9096
+server:
+  port: 8081
